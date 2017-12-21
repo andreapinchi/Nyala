@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://hwthorn.github.io/parallaxify/demo/galaxy.html -->
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta charset="utf-8">
+
+		<title>runner</title>
+		<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/runner.css">
+	
+	</head>
+	<body>
+		
+		<div id="game_container">
+			<div id="bg_back">&nbsp;</div><!-- fixed bg -->
+			<div id="bg_front">&nbsp;</div>
+			<div id="bg_terrain">&nbsp;</div><!-- moving lines -->
+			
+			<div id="back_elements" class="element">&nbsp;</div>
+			
+			<div id="runner_container" class="runner">
+				<div id="runner_run">&nbsp;</div>
+				<div id="runner_stand">
+					<div id="baloon">Don't stop!</div>
+				</div>
+			</div>
+				
+			<div id="front_elements" class="element">&nbsp;</div>
+			
+			<div id="interface_container">			
+				<div id="progress_container">
+					<span><span id="progress_km">6</span> Km and <span id="progress_m">000</span> m to go</span>
+					<div id="progress_bar"><div id="bar">&nbsp;</div></div>
+				</div>
+				<!--div id="water_collected"><span>SCORE</span><br>0</div-->
+			</div>
+
+			<div id="chrono_container">
+				<h2>Game ending in <div id="chrono">3</div></h2>
+			</div>
+			
+			<div id="instruction_container">
+				<div id="instruction_content">
+					<h3 id="mission_title">Mission:</h3>
+					<p>Run to the nearest water source</p>
+					<h3 id="instruction_title">Instructions:</h3>
+					<p>Click repeatedly to run!</p>
+					<div id="runner_instruction_container" class="runner">
+						<div id="runner_instruction">&nbsp;</div>
+					</div>
+					<a id="start_btn" class="btn">START</a>
+					
+				</div>
+			</div>
+
+			<div id="gameover_text">
+				<h2>GAME<br>OVER</h2>
+				<p class="red">click anywhere to continue...</p>
+			</div>
+
+			<div id="gameover_container">
+				<!-- <h2 id="finish_text">MISSION: IMPOSSIBLE?</h2> -->
+				<div id="gameover_desc">
+					<p>Women in Africa spend <strong>40 billion hours a year</strong> walking for water.</p>
+					<p>Access to clean water gives communities more time to grow food, earn an income, and go to school and fight poverty.</p>
+					<p>You can help <strong>663 million people</strong> with a simple action:</p>
+
+					<a class="btn donate" href="https://www.charitywater.org/donate" title="Donate to Charity:Water">DONATE <span>charity:water</span></a>
+					<p class="disclaimer">Personal project, not affiliated to Charity:water</p>
+
+					<div id="runner_instruction_container" class="runner">
+						<div id="runner_instruction">&nbsp;</div>
+					</div>
+				</p>
+			</div>
+		</div>
+		
+		
+		
+		<div id="trigger" class="noselect">&nbsp;</div>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/TimelineLite.min.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+	</body>
+</html>

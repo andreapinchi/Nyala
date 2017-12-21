@@ -1,0 +1,24 @@
+{
+  "name": "runner",
+  "description": "runner",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "dotenv": "^2.0.0",
+    "grunt": "*",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-compass": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-mjml": "^1.0.1",
+    "grunt-open": "*",
+    "matchdep": "*",
+    "mjml": "^3.0.2"
+  }
+}
