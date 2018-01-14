@@ -1,2 +1,5 @@
 node_modules
 .DS_Store
+styles/.sass-cache
+styles/.sass-cache/*
+.sass-cache/d9b4e15a040b4169cf73eaa9104fd652cb37cc05/runner.scssc
