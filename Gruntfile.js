@@ -1,11 +1,15 @@
+
+
 module.exports = function(grunt) {
     
     // load .env file
     require('dotenv').config({silent: true});
-    var localDomain = process.env.LOCAL_DOMAIN ? process.env.LOCAL_DOMAIN : 'amnesty.localhost';
+    var localDomain = process.env.LOCAL_DOMAIN ? process.env.LOCAL_DOMAIN : 'localhost:8888/Nyala';
 
     // load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
+    grunt.loadNpmTasks('grunt-contrib-compass');
 
     grunt.initConfig({
         compass: {

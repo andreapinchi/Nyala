@@ -8,10 +8,10 @@
   },
   "devDependencies": {
     "dotenv": "^2.0.0",
-    "grunt": "*",
+    "grunt": "^1.0.1",
     "grunt-autoprefixer": "^3.0.4",
     "grunt-browser-sync": "^2.2.0",
-    "grunt-contrib-compass": "*",
+    "grunt-contrib-compass": "^1.1.1",
     "grunt-contrib-concat": "*",
     "grunt-contrib-cssmin": "*",
     "grunt-contrib-uglify": "*",
@@ -20,5 +20,8 @@
     "grunt-open": "*",
     "matchdep": "*",
     "mjml": "^3.0.2"
+  },
+  "dependencies": {
+    "compass": "^0.1.1"
   }
 }
