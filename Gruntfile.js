@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-
+    
     // load .env file
     require('dotenv').config({silent: true});
     var localDomain = process.env.LOCAL_DOMAIN ? process.env.LOCAL_DOMAIN : 'amnesty.localhost';
