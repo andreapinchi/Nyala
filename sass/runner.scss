@@ -12,6 +12,7 @@ $red: #e45531;
 
 * {
 	box-sizing: border-box;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 body {
@@ -172,12 +173,10 @@ a{
 
 #runner_stand{
 	background: url('../img/stand.gif') no-repeat left bottom;
-	display: none;
 }
 
 #runner_run{
 	background: url('../img/run.gif') no-repeat left bottom;
-	display: none;
 }
 
 #trigger{
@@ -186,8 +185,8 @@ a{
 	left: 0;
 	width: 100%;
 	height: 100%;
-	display: none;
 	cursor: pointer;
+	opacity: 0;
 }
 
 #interface_container{
@@ -195,7 +194,6 @@ a{
 	width: 100%;
 	font-weight: 400;
 	line-height: .8em;
-	display: none;
 }
 
 #interface_container > div{
@@ -329,7 +327,6 @@ span#progress_km{
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	display: none;
 	h2{
 		color: #fff;
 		margin:0;
@@ -343,7 +340,6 @@ span#progress_km{
 }
 
 #gameover_container{
-	display: none;
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -374,12 +370,3 @@ span#progress_km{
 		}
 	}
 }
-
-#gameover_desc{
-	display: none;
-}
-
-#finish_text{
-
-}
-

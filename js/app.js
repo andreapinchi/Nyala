@@ -23,7 +23,7 @@ $(document).ready(function() {
 		display = $('#chrono');
 	
 	var elements = ['elements_sudan-01.png','elements_sudan-02.png'];
-	var baloon = ["Hurry Up!","Don't stop","WHY?","Hey there?","Keep running!"]
+	var baloon = ["Hurry Up!","Don't stop","Already tired?","Need water!", "Hey there?","Keep running!"]
 	
 	$('#start_btn').click(function (event){
 		startGame();
@@ -150,7 +150,9 @@ $(document).ready(function() {
 			display.text('3');
 			startTimer(waitingTime, display);
 			
-			$('#baloon').text(baloon[Math.floor(Math.random() * baloon.length)])
+			$('#baloon').text(baloon[baloon_count])
+			baloon_count++;
+			if(baloon_count >= baloon.length) baloon_count = 0;
 
 			$('#chrono_container').fadeIn(450, function(){
 				$('#baloon').fadeIn();
