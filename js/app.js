@@ -22,7 +22,7 @@ $(document).ready(function() {
 	var waitingTime = 3, //seconds
 		display = $('#chrono');
 	
-	var elements = ['elements_sudan-01.png','elements_sudan-02.png'];
+	var elements = ['elements_sudan-01.png','elements_sudan-02.png','elements_sudan-03.png','elements_sudan-04.png'];
 	var baloon = ["Hurry Up!","Don't stop","WHY?","Hey there?","Keep running!"]
 	
 	$('#start_btn').click(function (event){
@@ -137,7 +137,9 @@ $(document).ready(function() {
 		}else{
 			$back_elements.hide();
 			$back_elements.css({left: windWidth + Math.random()*1000+'px'});
-			$back_elements.css('background-image', 'url(img/'+elements[Math.floor(Math.random() * elements.length)])
+
+			el = Math.floor(Math.random() * elements.length);
+			$back_elements.css('background-image', 'url(img/'+el)
 		}
 	}
 	
