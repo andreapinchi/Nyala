@@ -12,6 +12,7 @@ $red: #e45531;
 
 * {
 	box-sizing: border-box;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 body {
@@ -39,6 +40,11 @@ h1,h2,h3,h4,h5{
 	font-weight: normal;
 	letter-spacing: .05em;
 	font-family: 'Quarion-Heavy', sans-serif;
+}
+
+h1{
+	font-size: 6em;
+	padding-top: 15vh;
 }
 
 h2{
@@ -85,16 +91,30 @@ a{
 	&.donate{
 		span{
 			text-decoration: none;
-			line-height: 0;
+			line-height: .5em;
 			font-weight: normal;
 			font-size: .6em;
 			font-family: 'Space Mono', sans-serif;
+			display: block;
+		}
+	}
+
+	&.secondary_btn{
+		background: #333;
+		&:hover{
+			background: darken(#333, 15);
 		}
 	}
 
 	&:hover{
 		background: darken($red, 15);
 	}
+}
+
+.bottom_btn{
+	position: absolute;
+	bottom: 1vh;
+	width: 100%; 
 }
 
 
@@ -123,7 +143,7 @@ a{
 }
 
 #bg_terrain{
-	transition: all .5s ease-out;
+	//transition: all .5s ease-out;
 	position: absolute;
 	background: url('../img/runner_bg_sudan_terrain.png') repeat-x left bottom;
 	width: 100%;
@@ -171,8 +191,8 @@ a{
 }
 
 #runner_stand{
+	position: absolute;
 	background: url('../img/stand.gif') no-repeat left bottom;
-	display: none;
 }
 
 #runner_run{
@@ -187,6 +207,7 @@ a{
 	width: 100%;
 	height: 100%;
 	display: none;
+	opacity: 0;
 	cursor: pointer;
 }
 
@@ -278,6 +299,17 @@ span#progress_km{
 	display: inline-block;
 }
 
+/* TITLE */
+#title_container{
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	height: 100%;
+	h1{
+		color: #FFF;
+	}
+}
+
 /* instruction */
 #instruction_container{
 	position: absolute;
@@ -285,41 +317,43 @@ span#progress_km{
 	text-align: center;
 	height: 100%;
 	color: #FFF;
-	background: rgba(0,0,0,.85);
+	//background: rgba(0,0,0,.85);
+	display: none;
 	@media screen and (min-width: $break-large) {
-		padding: 0 10vw;
+		//padding: 0 10vw;
+	}
+
+	#start_btn{
+		opacity: 0;
 	}
 }
 
 #instruction_content{
-	margin-top: 1vh;
+	margin-top: 15vh;
 	padding: 2em;
 	@media screen and (min-width: $break-large) {
 		margin-top: 10vh;
 	}
 }
 
-#instruction_container h3{
-	margin: 0 auto .2em;
-	font-size: 2em;
-	text-align: center;
-	@media screen and (min-width: $break-large) {
-		
-		//font-size: 2em;
+#instruction_container {
+	h3{
+		margin: 0 auto .2em;
+		font-size: 2em;
+		text-align: center;
+		@media screen and (min-width: $break-large) {
+			
+			//font-size: 2em;
+		}
+	}
+
+	p{
+		margin: 0 auto 2em; 
+		text-align: center;
 	}
 }
 
-#instruction_container p{
-	margin: 0 auto 2em; 
-	text-align: center;
-}
-
-#start_btn{
-	z-index: 2;
-	position: relative;
-}
-
-#runner_instruction{
+.runner_instruction{
 	background: url('../img/runner_instruction-01.png') no-repeat left bottom;
 }
 
@@ -366,7 +400,11 @@ span#progress_km{
 		    bottom: 2vh;
 		    font-size: .7em;
 		    opacity: .2;
-		    line-height: 1.1em;
+		    line-height: 1.6em;
+
+		    a{
+		    	color: #FFF;
+		    }
 		}
 
 		strong{

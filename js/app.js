@@ -19,11 +19,16 @@ $(document).ready(function() {
 	var $front_elements = $('#front_elements');
 	var $back_elements = $('#back_elements');
 
-	var waitingTime = 3, //seconds
+	var waitingTime = 5, //seconds until gameover
 		display = $('#chrono');
 	
 	var elements = ['elements_sudan-01.png','elements_sudan-02.png'];
-	var baloon = ["Hurry Up!","Don't stop","Already tired?","Need water!", "Hey there?","Keep running!"]
+	var baloon = ["Hurry Up!","Don't stop","Already tired?","Need water!", "Hey there?","Keep running!"];
+	var baloon_count = 0;
+
+	$('#play_btn').click(function (event){
+		showInstructions();
+	})
 	
 	$('#start_btn').click(function (event){
 		startGame();
@@ -36,12 +41,28 @@ $(document).ready(function() {
 
 	updateProgress();
 
+	TweenMax.set($('#runner_stand'), {left:'150vw'});
+	TweenMax.set($('#bg_terrain'), {'background-position-x':'150vw'});
+
+	function showInstructions(){
+		$('#title_container').fadeOut('slow');
+		$('#instruction_container').fadeIn('slow');
+		
+		TweenMax.to($('#bg_terrain'), 2, {'background-position-x':0});
+		TweenMax.to($('#runner_stand'), 2, {left:'0', onComplete: showStartBtn});
+	}
+
+	var showStartBtn = function(){
+		TweenMax.to($('#start_btn'), .45, {opacity: 1});
+	}
+
 
 	function startGame(){
 		$('#instruction_container').fadeOut('slow');
 		$('#runner_stand').fadeIn('slow');
 		$('#interface_container').fadeIn('slow');
 		$('#trigger').show();
+		$('#bg_terrain').css('transition', 'all .5s ease-out');
 	}
 
 	function gameOver(){
@@ -69,9 +90,9 @@ $(document).ready(function() {
 	}
 	
 	function finishGame () {
-		gameFinished = true;
 		$('#finish_text').text('FINISH!')
 		$('#gameover_text h2').html('YOU<br>WIN');
+
 		gameOver();
 	}
 
@@ -141,21 +162,21 @@ $(document).ready(function() {
 		}
 	}
 	
-	function stand (){
+	function stand(){
 		$('#runner_run').hide();
 		$('#runner_stand').show();
 
 		//prepare for Game Over
 		if(!gameFinished){
-			display.text('3');
-			startTimer(waitingTime, display);
+			display.text(waitingTime);	
 			
 			$('#baloon').text(baloon[baloon_count])
 			baloon_count++;
 			if(baloon_count >= baloon.length) baloon_count = 0;
 
-			$('#chrono_container').fadeIn(450, function(){
-				$('#baloon').fadeIn();
+			$('#baloon').fadeIn(450, function(){
+				startTimer(waitingTime, display);
+				$('#chrono_container').fadeIn('fast');
 			});
 		}					
 	}
@@ -175,7 +196,7 @@ $(document).ready(function() {
 	        //display.text(hours + ':' + minutes + ":" + seconds);
 	        display.text(seconds);
 	        
-	        if (timer <= 0) {
+	        if (timer < 0) {
 	        	gameOver();
 	        	
 	        	display.text('0');
