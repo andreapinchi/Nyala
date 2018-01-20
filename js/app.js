@@ -149,7 +149,9 @@ $(document).ready(function() {
 		}else{
 			$front_elements.hide();
 			$front_elements.css({left: windWidth + Math.random()*1000+'px'});
-			$front_elements.css('background-image', 'url(img/'+elements[Math.floor(Math.random() * elements.length)])
+
+			el = Math.floor(Math.random() * elements.length);
+			$front_elements.css('background-image', 'url(img/'+elements[el])
 		}
 	}
 	
@@ -162,7 +164,7 @@ $(document).ready(function() {
 			$back_elements.css({left: windWidth + Math.random()*1000+'px'});
 
 			el = Math.floor(Math.random() * elements.length);
-			$back_elements.css('background-image', 'url(img/'+el)
+			$back_elements.css('background-image', 'url(img/'+elements[el])
 		}
 	}
 	
