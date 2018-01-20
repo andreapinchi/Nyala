@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     
     // load .env file
     require('dotenv').config({silent: true});
-    var localDomain = process.env.LOCAL_DOMAIN ? process.env.LOCAL_DOMAIN : 'localhost:8888/Nyala';
+    var localDomain = process.env.LOCAL_DOMAIN ? process.env.LOCAL_DOMAIN : 'localhost/Nyala';
 
     // load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
@@ -23,8 +23,8 @@ module.exports = function(grunt) {
         cssmin: {
             combine: {
                 files: {
-                    'css/runner.min.css': [
-                        'css/runner.css'
+                    'dist/css/runner.min.css': [
+                        'dist/css/runner.css'
                     ]
                 }
             }
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
                 map: true
             },
             my_target: {
-                src: ['css/*.css']
+                src: ['dist/css/*.css']
             }
         },
         watch: {
@@ -48,8 +48,8 @@ module.exports = function(grunt) {
         browserSync: {
             bsFiles: {
                 src : [
-                    'js/*.min.js',
-                    'css/*.css'
+                    'dist/js/*.min.js',
+                    'dist/css/*.css'
                 ]
             },
             options: {
