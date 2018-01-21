@@ -31,14 +31,13 @@ $(document).ready(function() {
 		showInstructions();
 	})
 	
-	
-	$('#start_btn').click(function (event){
-		startGame();
-		gameStarted = true;
-	})
-	
 	$('#trigger').click(function (event) {
-		run();	
+		run();
+		if(!gameStarted){
+			startGame();
+			gameStarted = true;
+		}
+			
 	});
 
 	updateProgress();
@@ -48,23 +47,21 @@ $(document).ready(function() {
 
 	function showInstructions(){
 		$('#title_container').fadeOut('slow');
-		$('#instruction_container').fadeIn('slow');
-		
 		TweenMax.to($('#bg_terrain'), 2, {'background-position-x':0});
-		TweenMax.to($('#runner_stand'), 2, {left:'0', onComplete: showStartBtn});
+		TweenMax.to($('#runner_stand'), 2, {left:'0', onComplete: readyToStart});
 	}
 
-	var showStartBtn = function(){
-		TweenMax.to($('#start_btn'), .45, {opacity: 1});
+	var readyToStart = function(){
+		$('#instruction_container').fadeIn('slow', function(){
+			$('#bg_terrain').css('transition', 'all .5s ease-out');
+			$('#trigger').show();
+		});
 	}
 
 
 	function startGame(){
 		$('#instruction_container').fadeOut('slow');
-		$('#runner_stand').fadeIn('slow');
 		$('#interface_container').fadeIn('slow');
-		$('#trigger').show();
-		$('#bg_terrain').css('transition', 'all .5s ease-out');
 	}
 
 	function gameOver(){
@@ -86,9 +83,18 @@ $(document).ready(function() {
 		$('#gameover_text').fadeOut(1000, function(){ });
 		$('#gameover_container').fadeIn(1000, function(){
 			setTimeout(function () {
-			$('#gameover_desc').fadeIn(1000)
+			gameOverAnimation()
 		},1000)
 		});
+	}
+
+	function gameOverAnimation(){
+		TweenMax.set($('#gameover_desc p.appear'), {'opacity':0});
+		$('#gameover_desc').fadeIn(1000, function(){
+			$('#gameover_desc p.appear').each(function(i,el){
+				TweenMax.to(el, 2, {'opacity':1, delay: 1+(i*2.5)});
+			})
+		})
 	}
 	
 	function finishGame () {

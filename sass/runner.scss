@@ -59,7 +59,7 @@ h2{
 }
 
 a{
-	transition: all .35s linear;
+	transition: all .25s linear;
 }
 
 .red{
@@ -87,6 +87,7 @@ a{
 	font-family: 'Quarion';
 	font-weight: bold;
 	padding: 2vh;
+	border: 5px solid #b53819;
 
 	&.donate{
 		span{
@@ -107,7 +108,7 @@ a{
 	}
 
 	&:hover{
-		background: darken($red, 15);
+		background: darken($red, 10);
 	}
 }
 
@@ -305,7 +306,11 @@ span#progress_km{
 	text-align: center;
 	height: 100%;
 	h1{
-		color: #FFF;
+		height: 50vh;
+		text-indent: -983em;
+		background: url('../img/title-01.png') no-repeat center;
+		background-size:contain;
+		padding: 0;
 	}
 }
 
@@ -382,7 +387,7 @@ span#progress_km{
 	height: 100%;
 	padding-top: 2vh;
 	color: #fff;
-	background: rgba(0,0,0,.85);
+	background: linear-gradient(to bottom, rgba(0,0,0,.8), rgba(0,0,0,.5));
 	p{
 		width: 80vw;
 	    margin: 3vh auto;
@@ -398,7 +403,7 @@ span#progress_km{
 		    padding: 0 5vh;
 		    bottom: 2vh;
 		    font-size: .7em;
-		    opacity: .2;
+		    color: #fff;
 		    line-height: 1.6em;
 
 		    a{
