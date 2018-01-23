@@ -24,7 +24,7 @@ $(document).ready(function() {
 	
 
 	var elements = ['elements_sudan-01.png','elements_sudan-02.png','elements_sudan-03.png','elements_sudan-04.png'];
-	var baloon = ["Hurry Up!","Don't stop","Already tired?","Need water!", "Hey there?","Keep running!"];
+	var baloon = ["Hurry Up!","Don't stop","Already tired?","I need water!", "Hey there?","Keep running!"];
 	var baloon_count = 0;
 
 	$('#play_btn').click(function (event){
