@@ -92,7 +92,7 @@ a{
 	&.donate{
 		span{
 			text-decoration: none;
-			line-height: .5em;
+			line-height: .9em;
 			font-weight: normal;
 			font-size: .8em;
 			display: block;
@@ -402,16 +402,17 @@ span#progress_km{
 	#share_container{
 		position: absolute;
 		bottom: 1vh;
-		width: 93vw;
 		display: flex;
 		padding: 0 3vw;
-		justify-content: center;
+		justify-content: space-between;
+		width: 100%;
 
 		div{
-			min-width:60px;
 
 			.disclaimer{
-			    font-size: .7em;
+				width: auto;
+			    font-size: .85em;
+			    opacity: .6;
 			    margin-top: 0;
 			    color: #fff;
 			    line-height: 2em;
