@@ -16,7 +16,7 @@ $red: #e45531;
 }
 
 body {
-    font-family: 'Space Mono', sans-serif;
+    font-family: 'Quarion', sans-serif;
     font-weight: 300;
     font-size: 16px;
     line-height: 1.4em;
@@ -94,8 +94,7 @@ a{
 			text-decoration: none;
 			line-height: .5em;
 			font-weight: normal;
-			font-size: .6em;
-			font-family: 'Space Mono', sans-serif;
+			font-size: .8em;
 			display: block;
 		}
 	}
@@ -261,7 +260,6 @@ span#progress_km{
 }
 
 #baloon{
-	font-family: 'Space Mono';
 	background: url(../img/baloon.png) no-repeat center;
 	width: 221px;
 	padding: .9em .5em;
@@ -393,28 +391,39 @@ span#progress_km{
 		width: 80vw;
 	    margin: 3vh auto;
 	    text-align: center;
-	    font-size: .875em;
+	    font-size: 1.1em;
 	    @media screen and (min-width: $break-large) {
 			width: 50vw;
 		}
 
-		&.disclaimer{
-			position: absolute;
-		    width: 100%;
-		    padding: 0 5vh;
-		    bottom: 2vh;
-		    font-size: .7em;
-		    color: #fff;
-		    line-height: 1.6em;
+		
+	}
 
-		    a{
-		    	color: #FFF;
-		    }
+	#share_container{
+		position: absolute;
+		bottom: 1vh;
+		width: 93vw;
+		display: flex;
+		padding: 0 3vw;
+		justify-content: center;
+
+		div{
+			min-width:60px;
+
+			.disclaimer{
+			    font-size: .7em;
+			    margin-top: 0;
+			    color: #fff;
+			    line-height: 2em;
+			    text-align: left;
+
+			    a{
+			    	color: #FFF;
+			    }
+			}
 		}
 
-		strong{
-			font-weight: bold
-		}
+		
 	}
 }
 

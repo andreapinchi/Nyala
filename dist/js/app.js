@@ -89,13 +89,18 @@ $(document).ready(function() {
 	}
 
 	function gameOverAnimation(){
-		TweenMax.set($('#gameover_desc p.appear'), {'opacity':0});
+		TweenMax.set($('#gameover_desc .appear'), {'opacity':0});
+		console.log($('#gameover_desc .appear'))
 		$('#gameover_desc').fadeIn(1000, function(){
-			$('#gameover_desc p.appear').each(function(i,el){
-				TweenMax.to(el, 2, {'opacity':1, delay: 1+(i*2.5)});
+			$('#gameover_desc .appear').each(function(i,el){
+				TweenMax.to(el, 2, {'opacity':1, delay: 1+(i*1.5)});
 			})
 		})
 	}
+
+	$('#share_btn').click(function () {
+		$("#share_opt").animate('{height:"toggle"}');;
+	})
 	
 	function finishGame () {
 		$('#finish_text').text('FINISH!')

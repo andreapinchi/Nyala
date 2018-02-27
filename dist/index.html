@@ -22,7 +22,16 @@
 			
 	</head>
 	<body>
-		
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=1760190374033329&autoLogAppEvents=1';
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
+
 		<div id="game_container">
 			<div id="bg_back">&nbsp;</div><!-- fixed bg -->
 			<div id="bg_front">&nbsp;</div>
@@ -83,12 +92,16 @@
 						<a class="btn donate" href="https://www.charitywater.org/donate" title="Donate to Charity:Water" target="_blank">DONATE <span>charity:water</span></a>
 					</p>
 					
-					<p class="disclaimer appear">Project by <a href="https://www.andreapinchi.it" title="Andrea Pinchi" target="_blank">Andrea Pinchi</a>.<br>Not affiliated with Charity:water</p>
-					<a id="share_btn">share</a>
-					<div id="share_opt">
-						<a href="#" id="share_opt_close_btn">close</a>
-						<a href="#" id="facebook_btn" class="btn">Facebook</a>
-						<a href="#" id="twitter_btn" class="btn">Twitter</a>
+					
+
+					<div class="appear" id="share_container">
+						<div>
+							<p class="disclaimer">Personal project by <a href="https://www.andreapinchi.it" title="Andrea Pinchi" target="_blank">Andrea Pinchi</a>.</p>
+						</div>
+						<div>
+							<div class="fb-share-button" data-href="https://www.andreapinchi.it/nyala/" data-layout="button" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.andreapinchi.it%2Fnyala%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+							</div>
+						</div>
 					</div>
 
 					<div id="runner_instruction_container" class="runner">
