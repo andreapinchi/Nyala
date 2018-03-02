@@ -329,17 +329,7 @@ span#progress_km{
 	#start_btn{
 		opacity: 0;
 	}
-}
 
-#instruction_content{
-	margin-top: 15vh;
-	padding: 2em;
-	@media screen and (min-width: $break-large) {
-		margin-top: 10vh;
-	}
-}
-
-#instruction_container {
 	h3{
 		margin: 0 auto .2em;
 		font-size: 2em;
@@ -353,6 +343,15 @@ span#progress_km{
 	p{
 		margin: 0 auto 2em; 
 		text-align: center;
+		color: #000;
+	}
+}
+
+#instruction_content{
+	margin-top: 15vh;
+	padding: 2em;
+	@media screen and (min-width: $break-large) {
+		margin-top: 10vh;
 	}
 }
 

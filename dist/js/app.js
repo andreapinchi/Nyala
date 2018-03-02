@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	
-	//setInterval(function () {run()}, 500)
+	//setInterval(function () {(run)()}, 500)
 					
 	var bgPos = 0;				
 	var prepareToStand;
@@ -11,6 +11,8 @@ $(document).ready(function() {
 	//init game
 	var gameStarted = false;
 	var gameFinished = false;
+	var prepareToStand, timerInterval;
+	var isRunning = false;
 	var progress = 0;
 	var progress_km = 0;
 	var timerInterval;
@@ -34,8 +36,8 @@ $(document).ready(function() {
 	$('#trigger').click(function (event) {
 		run();
 		if(!gameStarted){
-			startGame();
 			gameStarted = true;
+			startGame();
 		}
 			
 	});
@@ -110,8 +112,18 @@ $(document).ready(function() {
 	}
 
 	function run() {
+
+		isRunning = true;
+
 		clearTimeout(prepareToStand);
 		clearInterval(timerInterval);
+
+		//stop if user is not clicking
+		prepareToStand = setTimeout(function () {
+			stand(); 
+		}, 500);
+		
+
 		
 		//move bg
 		bgPos -= mvmt;
@@ -130,13 +142,8 @@ $(document).ready(function() {
 
 		$('#baloon').hide();
 		$('#chrono_container').hide();
-		
-		//stop if user is not clicking
-		prepareToStand = setTimeout(function () {
-			stand(); 
-		}, 500);
-
 	}
+
 
 	function updateProgress(){
 		remaining_km = ((totalMetres/1000)-progress_km).toFixed(3);
@@ -180,6 +187,8 @@ $(document).ready(function() {
 	}
 	
 	function stand(){
+		isRunning = false;
+
 		$('#runner_run').hide();
 		$('#runner_stand').show();
 
@@ -191,37 +200,45 @@ $(document).ready(function() {
 			baloon_count++;
 			if(baloon_count >= baloon.length) baloon_count = 0;
 
+			$('#chrono_container').fadeIn('fast');
 			$('#baloon').fadeIn(450, function(){
-				startTimer(waitingTime, display);
-				$('#chrono_container').fadeIn('fast');
+				startGameOverTimer(waitingTime, display);
 			});
 		}					
 	}
 
-	function startTimer(duration, display) {
-		
-	    var timer = duration, hours, minutes, seconds;
-	    timerInterval = setInterval(function () {
-	    	timer --;
-	    	//hours = "0"+parseInt( timer / 3600 ) % 24;
-			//minutes = parseInt( timer / 60 ) % 60;
-			seconds = timer % 60;
+	function startGameOverTimer(duration, display) {
+		//extra check
+		if(!isRunning){
 
-	        //minutes = minutes < 10 ? "0" + minutes : minutes;
-	        seconds = seconds < 10 ? seconds : seconds;
+			var timer = duration, hours, minutes, seconds;
 
-	        //display.text(hours + ':' + minutes + ":" + seconds);
-	        display.text(seconds);
-	        
-	        if (timer < 0) {
-	        	gameOver();
-	        	
-	        	display.text('0');
-	        	clearInterval(timerInterval);
-	            //timer = duration;
-	        }
+	    	timerInterval = setInterval(function () {
+		    	timer --;
+		    	//hours = "0"+parseInt( timer / 3600 ) % 24;
+				//minutes = parseInt( timer / 60 ) % 60;
+				seconds = timer % 60;
 
-		}, 1000);
+		        //minutes = minutes < 10 ? "0" + minutes : minutes;
+		        seconds = seconds < 10 ? seconds : seconds;
+
+		        //display.text(hours + ':' + minutes + ":" + seconds);
+		        display.text(seconds);
+		        
+		        if (timer < 0) {
+		        	if(!isRunning){
+			        	gameOver();
+			        	
+			        	display.text('0');
+			        	clearInterval(timerInterval);
+			            //timer = duration;
+			        }
+		        }
+
+			}, 1000);
+		}
+
+	    
 	}		
 	
 });
